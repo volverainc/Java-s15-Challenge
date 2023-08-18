@@ -261,6 +261,10 @@ public class Library implements Management{
         }
 
         if (foundReader != null) {
+            if (foundReader.getBooksBorrowed().size() >= 5) {
+                System.out.println("The reader has already borrowed the maximum number of books.");
+                return;
+            }
             System.out.print("Enter the book ID to issue: ");
             long bookID = scanner.nextLong();
             scanner.nextLine();
