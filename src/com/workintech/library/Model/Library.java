@@ -49,7 +49,7 @@ public class Library implements Management{
     public List<Book> selectBooksByAuthor(Author author) {
         List<Book> selectedBooks = new ArrayList<>();
         for (Book book : bookMap.values()) {
-            if (book.getAuthor().equals(author)) {
+            if (book.getAuthor().getName().equalsIgnoreCase(author.getName())) {
                 selectedBooks.add(book);
             }
         }
@@ -81,7 +81,7 @@ public class Library implements Management{
             case 1:
                 System.out.print("Enter author name: ");
                 String authorName = scanner.nextLine();
-                List<Book> booksByAuthor = selectBooksByAuthor(new Author(authorName, null));//??
+                List<Book> booksByAuthor = selectBooksByAuthor(new Author(authorName, null));
                 displayBooks(booksByAuthor);
                 break;
 
